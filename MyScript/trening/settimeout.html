@@ -1,0 +1,47 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript className</title>
+ <style>
+    .hilite{
+      display: block;
+      border:none;
+      width: 250px;
+      height: 40px;
+      background-color: red;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+ </style>
+</head>
+<body>
+  
+ 
+<p>Вспомогательная функция для работы с таймером</p>
+  
+
+<script>
+  /*  листинг 14,1 стр 370
+ * планирует вызов или вызовы функции f() в будушем
+ * ожидает перед первым вызовом start милесекунд затем вызывает f()
+ * каждый intervel милесекунд и останавливается через startend милесекунд
+ * если аргументы interval а аргумент end нет повторяющиеся вызовы f
+ * никогда не прекраяттся если отсутствуют оба аргумента interval и end
+ 
+ */
+function invoke(f, start, interval, end) {
+    if (!start) start = 0;          // по умолчанию через 0 секунд
+    if (arguments.length <= 2)      // случай однократного вызова
+        setTimeout(f, start);       // вызвать 1 раз через start мс
+    else {                          // случай многократного вызова 
+        setTimeout(repeat, start);  // начать вызовы через start мс
+        function repeat() {         // планируйте на вызов выше
+            var h = setInterval(f, interval); // вызвать f через interval мс
+            // прекратить вызовы через end мс если значения end  определено
+            if (end) setTimeout(function() { clearInterval(h); }, end);
+        }
+    }
+}
+</script>
+</body>
+</html>

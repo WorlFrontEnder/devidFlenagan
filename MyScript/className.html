@@ -1,0 +1,54 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript className</title>
+ <style>
+    .hilite{
+      display: block;
+      border:none;
+      width: 250px;
+      height: 40px;
+      background-color: red;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+ </style>
+</head>
+<body>
+  
+  <button onclick="highlight(this); debug('Add ClassName highlight')">Add ClassName highlight</button>
+
+  
+
+<script>
+   function highlight(e){ // Выделяет e устанавливает класс css
+    // Просто добавляет или переопределяет HTML-атрибут class.
+    // Предпологается что таблица стилей css уже сожержит определение класса "hilite"
+    if(!e.className){
+      e.className = "hilite";
+    }else {
+      e.className += " hilite";
+    }
+  };
+
+  function debug(msg){
+      // Отыскать область для отладочных сообшений  в документе поиск по html-фтребуту id
+      var log = document.getElementById("debuglog");
+
+      // Если элемент с атребутом id="debuglog" отсутствует создать его 
+      if(!log){
+        log = document.createElement("div");   // Создать элемент div 
+        log.id = "debuglog";                   // Установить атребут id
+        log.innerHTML = "<h1>Debug log </h1>"; // Начальное содержимое
+        document.body.appendChild(log);        // Добавить в конец документа
+      };
+
+      // теперь обернуть сообшение в теги   <pre>  и добавить в элемент log
+      var pre = document.createElement("pre"); // Создать элемент pre
+      var text = document.createTextNode(msg); // Обернуть msg в текуший узел
+      pre.appendChild(text);                   // Добавить text в тег pre
+      log.appendChild(pre);                    // Добавить тег pre в элемент log
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript className</title>
+ <style>
+    .hilite{
+      display: block;
+      border:none;
+      width: 250px;
+      height: 40px;
+      background-color: red;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+ </style>
+</head>
+<body>
+  
+ <button onclick="clicking(this)"> Add ClassName </button>
+
+<script>
+  function clicking(e){
+    if (!e.className) {
+      e.className =  "hilite";
+    }else{
+      e.className = "";
+    }
+  }
+</script>
+</body>
+</html>

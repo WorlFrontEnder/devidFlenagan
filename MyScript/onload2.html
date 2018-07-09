@@ -1,0 +1,41 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript className</title>
+ <style>
+    .hilite{
+      display: block;
+      border:none;
+      width: 250px;
+      height: 40px;
+      background-color: red;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+ </style>
+</head>
+<body>
+  
+ 
+
+  
+
+<script>
+  // листинг: 13.5. 349 стр
+  // регистрирует функцию f которая должна вызыватся по окончанию загрузки документа 
+// Если футкция уже загруженно функция f будет вызвана асинхроно и в кратчайшие сроки 
+function onLoad(f) {
+    if (onLoad.loaded)                  // если документ уже загружен
+        window.setTimeout(f, 0);        // вызвать f как можно скорее 
+    else if (window.addEventListener)   // стандартный метод регистрации событий
+        window.addEventListener("load", f, false);
+    else if (window.attachEvent)        // IE8 and earlier use this instead
+        window.attachEvent("onload", f);
+}
+// сначала установить флаг указывающий что документ еще не загружен
+onLoad.loaded = false;
+// и зарегистрировать функцию которая сбросит флаг после загрузки документа 
+onLoad(function() { onLoad.loaded = true; });
+</script>
+</body>
+</html>

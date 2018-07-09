@@ -1,0 +1,24 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript prototype </title>
+
+</head>
+<body>
+
+<script>
+	function point(x,y){
+		this.x = x;
+		this.y = y;
+	}
+
+	var p = new point(3,1);
+
+	point.prototype.r = function(){
+	  return Math.sqrt(this.x * this.x + this.y * this.y);
+	};
+
+	console.log(point);
+</script>
+</body>
+</html>

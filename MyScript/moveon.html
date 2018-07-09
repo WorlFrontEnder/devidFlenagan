@@ -1,0 +1,23 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript moveon function </title>
+
+</head>
+<body>
+
+<script>
+    
+	function moveon(){
+		// Вывести модальнный диалог чтобы получить ответ 
+		var answer = confirm("Ready to move  on ?");
+		// Если пользователь шелкнул на ok  заставить браузер загрузить новыю страницу
+		if (answer) {
+			window.location = "http://google.com";
+		}
+	}
+    // запустить функцию обявленную через 6 секунд
+	setTimeout(moveon, 6000);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Оператор in</title>
+ 
+</head>
+<body>
+ <p>стр 187</p>
+  
+
+<script>
+	var calculator = {
+		operand1: 1,
+		operand2: 1,
+		add: function(){
+			// Обратите внимания что для ссылки на этот обект используется ключегое слого this 
+			this.result = this.operand1 + this.operand2;
+		}
+	}
+
+	calculator.add();
+	calculator.result;
+</script>
+</body>
+</html>

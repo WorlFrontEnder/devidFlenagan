@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+    .block *{
+        display: none;
+     }
+     .block *.btn{
+        display: block;
+        cursor:pointer;
+     }
+  </style>
+</head>
+
+
+ <body>
+    <div class="block">
+        <h1 class="btn">Нажмите здесь, чтобы открыть скрытый текст</h1>
+        
+        
+        <p> Этот пункт скрыт. Он появляется при нажатии на Заголовок.</p>
+    </div>
+
+
+
+
+    
+
+    <script>
+      window.onload = function(){
+        var block = document.getElementsByClassName("block");
+
+        for(var i = 0; i < block.length; i++){
+            var elements = block[i];
+            var btn = elements.getElementsByClassName("btn")[0];
+
+            btn.onclick = function(){
+              if(elements.className == "block"){
+                 elements.className = "none";
+
+              } else if(elements.className == "none"){
+                 elements.className = "block";
+              }
+            }
+        }
+      }
+    </script>
+   
+ </body>
+</html>

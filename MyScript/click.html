@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ .reveal * { display: none; }  
+ .reveal *.handle { display: block;} 
+</style>
+<script>
+// ничего не делать пока документ не будет загружен полностью
+window.onload = function() {
+    // отыскать все контейнерные элементы с класом "reveal"
+    var elements = document.getElementsByClassName("reveal");
+
+    for(var i = 0; i < elements.length; i++) {  // для каждого такого элемента...
+        var elt = elements[i];
+
+        // отыскать элементы с класом "handle" в контейнере elt и присвоить к переменной title
+        var title = elt.getElementsByClassName("handle")[0];
+
+        // после щелчка на этом элементе сделать видимым остальные содержимое 
+        title.onclick = function () {
+                    if(elt.className == "reveal"){
+                        elt.className = "revealed";
+                    }
+                    else if (elt.className == "revealed"){
+                      elt.className = "reveal";
+                    }
+                }
+        }
+};
+</script>
+</head>
+<body>
+<div class="reveal">
+        <h1 class="handle">Нажмите здесь, чтобы открыть скрытый текст</h1>
+        
+        
+        <p> Этот пункт скрыт. Он появляется при нажатии на Заголовок.</p>
+    </div>
+</body>
+</html>

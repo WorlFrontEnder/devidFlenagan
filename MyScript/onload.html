@@ -1,0 +1,74 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript onload </title>
+
+</head>
+<body>
+
+<script>
+   // События  "load" возбуждается когда документ будет полностью загружен 
+	// Обычно мы вынуждены ждать этого события прежде чем можно будет запустить наш програмный код javascript
+
+	window.onload = function (){ // запустит функцию после загрузки документа
+		// Отыскать все теги <img> в докумунте
+        var images = document.getElementsByTagName('img');
+
+        // обойти их все в цикле добввить к каждому обработчику события "click"
+        // Чтобы обеспечить сокрытия любого изоброжения после щелчка на нем 
+
+        for(var i = 0; i < images.length; i++){
+          var image = images[i];
+
+          if(image.addEventListener){ // другой способ регистрации обработчика 
+            image.addEventListener("click", hide, false);  // для совместимости IE8  и ниже 
+          }
+
+          else{
+           image.addEventListener("onclick", hide);
+          }
+        }
+
+        function hide(event){
+          event.target.style.visibility = "hidden";
+        }
+	};
+
+
+
+
+   function hide(e, reflow){             // скрывает элемент e изменяя его стиль
+    if(reflow){                         // Если 2 аргумент true
+      e.style.display = "none";         // скрыть элемент и использовать занимаемое им место 
+    }
+    else {
+      e.style.visibility = "hidden";    // Сделать e невидимым но оставить занимаемое им место пустым
+    }
+  };
+
+
+
+
+  
+
+  function debug(msg){
+      // Отыскать область для отладочных сообшений  в документе поиск по html-фтребуту id
+      var log = document.getElementById("debuglog");
+
+      // Если элемент с атребутом id="debuglog" отсутствует создать его 
+      if(!log){
+        log = document.createElement("div");   // Создать элемент div 
+        log.id = "debuglog";                   // Установить атребут id
+        log.innerHTML = "<h1>Debug log </h1>"; // Начальное содержимое
+        document.body.appendChild(log);        // Добавить в конец документа
+      };
+
+      // теперь обернуть сообшение в теги   <pre>  и добавить в элемент log
+      var pre = document.createElement("pre"); // Создать элемент pre
+      var text = document.createTextNode(msg); // Обернуть msg в текуший узел
+      pre.appendChild(text);                   // Добавить text в тег pre
+      log.appendChild(pre);                    // Добавить тег pre в элемент log
+    };
+</script>
+</body>
+</html>

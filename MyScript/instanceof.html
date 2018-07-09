@@ -1,0 +1,29 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>Оператор instanceof</title>
+ 
+</head>
+<body>
+  
+ 
+<p>Оператор instanceof требует чтобы левым операндом был обьект а правым имя класса обекта</p>
+
+<p> Результатом оператора будет значения true если обект указанный с лево является экземпляром класса указаного справо </p>
+  
+
+<script>
+	var d = new Date();     // Создать новый обект с помощью конструктора Date
+
+	d instanceof Date;      // вернет true обект  был создан с функцией Data()
+	d instanceof Object;    // вернет true все элементы являются экземплярами 
+	d instanceof Number;    // вернет false d не является обектом Number
+
+	var a = [1, 2, 3];
+
+	a instanceof Array;     // Вернет true  a - это масив 
+	a instanceof Object;    // Вернет true  все масивы являются обектами 
+	a instanceof RegExp;    // Вернет false масивы не являются регулярными выражениями 
+</script>
+</body>
+</html>

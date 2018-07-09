@@ -1,0 +1,18 @@
+
+<p>так выгледила верстка 1996 года информация выводилось document.write("<tr><th>n</th><th>n!</th></tr>");</p>
+
+<h1>Генерация содержимого документа во время загрузки</h1>
+<script>
+function factorial(n) {                 // функция вычисления факториалов 
+    if (n <= 1) return n;
+    else return n*factorial(n-1);
+}
+
+document.write("<table>");                         // начало html таблицы 
+document.write("<tr><th>n</th><th>n!</th></tr>");  // вывести заголовок таблицы 
+for(var i = 1; i <= 10; i++) {                     // вывести 10 строк 
+    document.write("<tr><td>" + i + "</td><td>" + factorial(i) + "</td></tr>");
+}
+document.write("</table>");                        // Конец таблицы 
+document.write("Generated at " + new Date());      // вывести время 
+</script>

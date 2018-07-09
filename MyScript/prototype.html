@@ -1,0 +1,29 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript prototype </title>
+
+</head>
+<body>
+
+<script>
+	// Определение функции-консткуктор для инициализиции нового обекта Point
+	function point(x,y){
+     this.x = x;           // this - ссылка на инициализируеммый обект 
+     this.y = y;           // сохранить аргументы в свойствах обекта
+	}
+    
+
+    // Чтобы создать новый экземпляр необходимо вызвать  функции-консткуктор с ключевым словом new
+	var p = new point(3,1);
+
+
+    // Методы обектов point определяется за счет присваивания функций свойствам обект прототипа  
+	point.prototype.r = function(){
+		return Math.sqrt(this.x  * this.x + this.y * this.y ); // вернуть корень квадрат 
+	};
+
+	console.log(typeof point);
+</script>
+</body>
+</html>

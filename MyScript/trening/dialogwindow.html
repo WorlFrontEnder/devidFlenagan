@@ -1,0 +1,23 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript moveon function </title>
+
+</head>
+<body>
+
+<script>
+     
+	function moveon(){
+		if (confirm("Хотите указать свой текст?")) {
+			var s = prompt("Укажите свой текст:");
+			alert("Вы указали такой текст: " + s);
+		}else{
+			alert("Вы отказались указывать свой текст"); 
+		}
+	}
+
+	setTimeout(moveon, 6000);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>   
+<html>
+<head>
+<title>JavaScript moveon function </title>
+</head>
+<body>
+
+<script>
+function moveon (){
+	var answer = confirm("Вы подписались ?");
+
+	if (answer) {
+		window.location = "http://google.com";
+	}else{
+		alert("Вы отказались подписатся")
+	}
+};
+
+setTimeout(moveon, 2000);
+</script>
+</body>
+</html>
