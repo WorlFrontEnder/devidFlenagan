@@ -7,15 +7,17 @@
 <script>
 
 function time(){
- var id = document.getElementById("clock");
- var date = new Date();
+	var block = getElementById("block");
 
- id.innerHTML = date.toLocaleTimeString();
+	var clock = new Date();
 
- setTimeout(time,1000);
+	block.innerHTML = clock.toLocaleTimeString();
+
+	setTimeout(time, 1000);
 }
 
 window.onload = time;
+
 
  /*function time(){
  	var clockId = document.getElementById("clock");
