@@ -5,31 +5,19 @@
 <title>Digital Clock</title>
 
 <script>
+	
+	function time(){
+		var block = document.getElementById("clock");
 
-function time(){
-	var block = getElementById("block");
+		var timers = new Date();
 
-	var clock = new Date();
+		block.innerHTML = timers.toLocaleTimeString();
 
-	block.innerHTML = clock.toLocaleTimeString();
+		setTimeout(time, 1000);
+	};
+   
 
-	setTimeout(time, 1000);
-}
-
-window.onload = time;
-
-
- /*function time(){
- 	var clockId = document.getElementById("clock");
-
- 	var date = new Date();
-
- 	clockId.innerHTML = date.toLocaleTimeString();
-
- 	setTimeout(time, 1000);
- }
-
- window.onload = time;*/
+   window.onload = time;
 
 
 </script>
