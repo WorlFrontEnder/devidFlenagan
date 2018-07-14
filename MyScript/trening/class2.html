@@ -10,32 +10,33 @@
   
 
 <script>
-function Range(from, to){
-	this.from = from;
-	this.to = to;
-}
+	
+	function Range(from, to){
+	   this.from = from;
+	   this.to = to;
+	}
 
-Range.prototype = {
-	includes: function(x){
-		return this.from <= x && x <= this.to;
-	},
+    
+    Range.prototype = {
+    	includes: function(x) { 
+    		return this.from <= x && x <= this.to; 
+    	 },
 
-	foreach: function(f){
-		for(var x = Math.ceil(this.from); x <= this.to; x++) {
-			f(x)
-		}
-	},
+    	foreach: function(f) {
+          for(var x = Math.ceil(this.from); x <= this.to; x++) f(x);
+        },
 
-	toString: function() {
-	    return "(" +  this.from + "..." + this.to + ")";
-   }
-};
+        toString: function() { 
+       	 return "(" + this.from + "..." + this.to + ")"; 
+       }
+    }
+     
+    var r = new Range(12, 4);
+		r.includes(2);            // => верно: 2 в серии
+		r.foreach(console.log);   // Печать 1 2 3
+		console.log(r);           // Отпечатки (1...Три)
 
-var r = new Range(1,2);
-r.includes(2);
-r.foreach(console.log);
-console.log(r);
-
+    
 </script>
 </body>
 </html>
