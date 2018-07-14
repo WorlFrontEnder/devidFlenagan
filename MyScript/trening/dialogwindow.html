@@ -7,7 +7,20 @@
 <body>
 
 <script>
+
+	function moveon(){
+		if (confirm("Хотите пройти регистрацию ?")) {
+			var s = prompt("Какой ваш возраст:");
+			alert("Ваш возраст: " + s + " лет");
+		}else{
+			alert("Вы отказались указывать свой текст"); 
+		}
+	}
+
+	setTimeout(moveon,1000);
      
+	/*
+
 	function moveon(){
 		if (confirm("Хотите указать свой текст?")) {
 			var s = prompt("Укажите свой текст:");
@@ -18,6 +31,8 @@
 	}
 
 	setTimeout(moveon, 6000);
+
+	*/
 </script>
 </body>
 </html>
